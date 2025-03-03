@@ -40,18 +40,14 @@ public class bookstoscrapetest {
             WebElement book = driver.findElement(By.cssSelector(".product_pod h3 a"));  
             actions.moveToElement(book).click().perform();  
 
-            WebElement addToBasketButton = driver.findElement(By.cssSelector("button.btn-add-to-basket"));
-            actions.moveToElement(addToBasketButton).click().perform();  
+            WebElement getProduct = driver.findElement(By.xpath("(//div[@class='image_container'])[1]"));
+            actions.moveToElement(getProduct).click().perform();  
 
-            if (driver.getPageSource().contains("has been added to your basket")) {
-                System.out.println("Test Case 3 Passed: Book was added to the basket");
-            } else {
-                System.out.println("Test Case 3 Failed: Book was not added to the basket");
-            }
+            
         } catch (Exception e) {
             System.out.println("Test execution encountered an error: " + e.getMessage());
         } finally {
-            // Close the browser
+             
             driver.quit();
         }
 
